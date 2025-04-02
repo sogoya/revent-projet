@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,25 +12,10 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
   const [view, setView] = useState("hello"); // Vue par défaut du popup
-  const textRef = useRef(null);
+
   const popupRef = useRef(null);
 
-  const [width, setWidth] = useState(30);
-
-  const languages = [
-    { code: "fr", name: "Français" },
-    { code: "en", name: "English" },
-    { code: "es", name: "Español" },
-    { code: "nl", name: "Nederlands" },
-  ];
-
-  useEffect(() => {
-    if (textRef.current) {
-      setWidth(textRef.current.offsetWidth + 20);
-    }
-  }, [selectedLang]);
-
-  // Gestion du clic en dehors du popup pour le fermer
+  // Gestion du clic en dehors du popup
   useEffect(() => {
     function handleClickOutside(event) {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -39,10 +25,11 @@ export default function Header() {
 
     if (popupOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
     }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [popupOpen]);
 
   return (
@@ -117,19 +104,12 @@ export default function Header() {
                   {view === "hello" ? "S'inscrire" : "Se connecter"} avec Google
                 </button>
                 <button className="w-full flex items-center gap-2 border rounded-md p-2 mb-2 hover:bg-gray-100">
-                  <FontAwesomeIcon
-                    icon={faFacebook}
-                    className="text-blue-500 w-6 h-6"
-                  />{" "}
-                  {view === "hello" ? "S'inscrire" : "Se connecter"} avec
+                  🔵 {view === "hello" ? "S'inscrire" : "Se connecter"} avec
                   Facebook
                 </button>
                 <button className="w-full flex items-center gap-2 border rounded-md p-2 mb-2 hover:bg-gray-100">
-                  <FontAwesomeIcon
-                    icon={faApple}
-                    className="text-black w-6 h-6"
-                  />
-                  {view === "hello" ? "S'inscrire" : "Se connecter"} avec Apple
+                  ⚫ {view === "hello" ? "S'inscrire" : "Se connecter"} avec
+                  Apple
                 </button>
 
                 <p className="text-center text-sm mt-4">
