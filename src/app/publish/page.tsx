@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 
 const PublishForm = () => {
   const [images, setImages] = useState<File[]>([]);
@@ -137,12 +138,15 @@ const PublishForm = () => {
             <div className="flex gap-2 mt-3">
               {imagePreviews.map((src, index) => (
                 <div key={index} className="relative">
-                  <img
+                  <Image
                     src={src}
                     alt="Prévisualisation"
                     className="h-20 w-20 object-cover rounded-md cursor-pointer"
+                    width={80} // Ajoute la largeur
+                    height={80} // Ajoute la hauteur
                     onClick={() => handleImageClick(src)} // Lors du clic, afficher l'image en grand
                   />
+
                   <button
                     className="absolute top-0 right-0 bg-red-600 text-white text-xs px-1 rounded"
                     onClick={() => removeImage(index)}
@@ -157,11 +161,14 @@ const PublishForm = () => {
             {selectedImage && (
               <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
                 <div className="relative">
-                  <img
+                  <Image
                     src={selectedImage}
                     alt="Image agrandie"
                     className="max-w-full max-h-full"
+                    width={800} // Largeur à ajuster selon tes besoins
+                    height={800} // Hauteur à ajuster selon tes besoins
                   />
+
                   <button
                     className="absolute top-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded"
                     onClick={handleCloseModal}

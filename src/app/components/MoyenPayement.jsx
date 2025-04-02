@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
 import { FaPlus, FaTimes } from "react-icons/fa";
+import Image from "next/image";
 
 export default function PaymentPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
 
   return (
-    <div className="p-2  mt-10">
+    <div className="p-2 mt-10">
       <p className="text-sm text-gray-500">Tes coordonnées</p>
       <div className="flex justify-between items-center mt-2 pb-2 gap-2 px-2">
         <span className="text-lg font-semibold text-gray-600">
@@ -42,9 +43,19 @@ export default function PaymentPopup() {
                 le·a vendeur·se.
               </p>
               <div className="flex gap-2 mt-2">
-                <img src="/mastercard.png" alt="MasterCard" className="w-8" />
-                <img src="/visa.png" alt="Visa" className="w-8" />
-                <img src="/discover.png" alt="Discover" className="w-8" />
+                <Image
+                  src="/mastercard.png"
+                  alt="MasterCard"
+                  width={32}
+                  height={32}
+                />
+                <Image src="/visa.png" alt="Visa" width={32} height={32} />
+                <Image
+                  src="/discover.png"
+                  alt="Discover"
+                  width={32}
+                  height={32}
+                />
               </div>
               <button
                 className="w-full bg-teal-600 text-white py-2 mt-4 rounded-lg hover:bg-teal-700"
@@ -81,9 +92,19 @@ export default function PaymentPopup() {
                 sécurisée.
               </p>
               <div className="flex gap-2 mt-2">
-                <img src="/mastercard.png" alt="MasterCard" className="w-8" />
-                <img src="/visa.png" alt="Visa" className="w-8" />
-                <img src="/discover.png" alt="Discover" className="w-8" />
+                <Image
+                  src="/mastercard.png"
+                  alt="MasterCard"
+                  width={32}
+                  height={32}
+                />
+                <Image src="/visa.png" alt="Visa" width={32} height={32} />
+                <Image
+                  src="/discover.png"
+                  alt="Discover"
+                  width={32}
+                  height={32}
+                />
               </div>
               <div className="mt-4 space-y-3">
                 <input

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import ProductGrid from "../../components/ProductGrid"; // ✅ Correction
 import SellerInfo from "../../components/SellerInfo";
+import Link from "next/link";
 
 export default function ProductDetail({ params }) {
   // Simule les données du produit (remplace plus tard par un fetch vers ta BDD)
@@ -141,9 +142,11 @@ export default function ProductDetail({ params }) {
 
           {/* Boutons */}
           <div className="mt-4 space-y-2">
-            <button className="w-full bg-teal-700 text-white py-2 rounded-md hover:bg-teal-800">
-              Acheter
-            </button>
+            <Link href="/checkout">
+              <button className="w-full bg-teal-700 text-white py-2 rounded-md hover:bg-teal-800">
+                Acheter
+              </button>
+            </Link>
             <button className="w-full border border-teal-700 text-teal-700 py-2 rounded-md hover:bg-teal-50">
               Faire une offre
             </button>

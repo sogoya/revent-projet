@@ -5,6 +5,7 @@ import { FaStar, FaCheckCircle } from "react-icons/fa";
 import { HiCheckCircle } from "react-icons/hi";
 import Reviews from "./Reviews";
 import Dressing from "./Dressing";
+import Image from "next/image"; // Ajout de l'importation de Image
 
 export default function Profile() {
   const router = useRouter();
@@ -23,10 +24,12 @@ export default function Profile() {
         <div className="w-full py-6 px-4 md:px-10 border border-b-slate-400">
           <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
             {/* Image de profil */}
-            <img
+            <Image
               src="/profile.png"
               alt="Profil"
-              className="w-24 h-24 rounded-full border object-cover"
+              width={96} // Largeur de l'image (w-24)
+              height={96} // Hauteur de l'image (h-24)
+              className="rounded-full border object-cover"
             />
             {/* Informations */}
             <div className="flex-1 text-center md:text-left">

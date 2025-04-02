@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import Image from "next/image";
 
 export default function LoginPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,29 +33,55 @@ export default function LoginPopup() {
               >
                 <X size={20} />
               </button>
-              
-              <h2 className="text-xl font-semibold text-center mb-4">Bienvenue !</h2>
-              
+
+              <h2 className="text-xl font-semibold text-center mb-4">
+                Bienvenue !
+              </h2>
+
               <button className="w-full flex items-center justify-center border py-2 rounded-md mb-2 hover:bg-gray-100">
-                <img src="/google-icon.png" alt="Google" className="w-5 h-5 mr-2" />
+                <Image
+                  src="/google-icon.png"
+                  alt="Google"
+                  width={20}
+                  height={20}
+                  className="mr-2"
+                />
                 Continuer avec Google
               </button>
-              
+
               <button className="w-full flex items-center justify-center border py-2 rounded-md mb-2 hover:bg-gray-100">
-                <img src="/apple-icon.png" alt="Apple" className="w-5 h-5 mr-2" />
+                <Image
+                  src="/apple-icon.png"
+                  alt="Apple"
+                  width={20}
+                  height={20}
+                  className="mr-2"
+                />
                 Continuer avec Apple
               </button>
-              
+
               <button className="w-full flex items-center justify-center border py-2 rounded-md hover:bg-gray-100">
-                <img src="/facebook-icon.png" alt="Facebook" className="w-5 h-5 mr-2" />
+                <Image
+                  src="/facebook-icon.png"
+                  alt="Facebook"
+                  width={20}
+                  height={20}
+                  className="mr-2"
+                />
                 Continuer avec Facebook
               </button>
-              
+
               <p className="text-center text-sm text-gray-600 mt-4">
-                Ou connecte-toi avec ton <a href="#" className="text-teal-600">e-mail</a>
+                Ou connecte-toi avec ton{" "}
+                <a href="#" className="text-teal-600">
+                  e-mail
+                </a>
               </p>
               <p className="text-center text-sm text-gray-600 mt-1">
-                Tu n'as pas de compte Vinted ? <a href="#" className="text-teal-600">S'inscrire</a>
+                Tu n'as pas de compte Vinted ?{" "}
+                <a href="#" className="text-teal-600">
+                  S'inscrire
+                </a>
               </p>
             </motion.div>
           </div>

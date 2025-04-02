@@ -25,9 +25,11 @@ export default function ProfileCard() {
           </div>
         </div>
       </div>
-      <button className="px-3 py-1 border border-teal-600 text-teal-600 rounded-md text-sm hover:bg-teal-700 hover:text-white transition">
-        <Link href="/membres">Explorer le Dressing</Link>
-      </button>
+      <Link href="/membres">
+        <button className="px-3 py-1 border border-teal-600 text-teal-600 rounded-md text-sm hover:bg-teal-700 hover:text-white transition">
+          Explorer le Dressing
+        </button>
+      </Link>
     </div>
   );
 }
